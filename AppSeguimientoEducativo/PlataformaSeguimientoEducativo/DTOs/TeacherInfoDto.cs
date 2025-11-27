@@ -2,23 +2,24 @@
 
 namespace PlataformaSeguimientoEducativo.DTOs
 {
-    public class TeacherInfoDto
+    public record TeacherInfoDto
     {
         [JsonPropertyName("teacherName")]
-        public string TeacherName { get; set; }
+        public required string TeacherName { get; init; }
+
         [JsonPropertyName("profileImageUrl")]
-        public string ProfileImageUrl { get; set; }
+        public required string ProfileImageUrl { get; init; }
 
         [JsonPropertyName("subjectName")]
-        public string SubjectName { get; set; }
+        public required string SubjectName { get; init; }
 
         [JsonPropertyName("period")]
-        public string Period { get; set; }
+        public required string Period { get; init; }
 
         [JsonPropertyName("gradeValue")]
-        public decimal GradeValue { get; set; }
+        public decimal GradeValue { get; init; }
 
         [JsonPropertyName("feedback")]
-        public FeedbackDetailDto Feedback { get; set; }
+        public required FeedbackDetailDto Feedback { get; init; }
     }
 }

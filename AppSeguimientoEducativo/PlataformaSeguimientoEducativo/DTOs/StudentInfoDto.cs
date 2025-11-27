@@ -2,18 +2,18 @@
 
 namespace PlataformaSeguimientoEducativo.DTOs
 {
-    public class StudentInfoDto
+    public record StudentInfoDto
     {
         [JsonPropertyName("studentId")]
-        public int StudentId { get; set; }
+        public int StudentId { get; init; }
 
         [JsonPropertyName("studentName")]
-        public string StudentName { get; set; }
+        public required string StudentName { get; init; }
 
         [JsonPropertyName("tutor")]
-        public Dictionary<string, string> Tutor { get; set; } = new();
+        public Dictionary<string, string> Tutor { get; init; } = new();
 
         [JsonPropertyName("Courses")]
-        public List<CourseDto> Courses { get; set; }
+        public required List<CourseDto> Courses { get; init; }
     }
 }

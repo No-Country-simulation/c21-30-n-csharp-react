@@ -44,16 +44,14 @@ namespace PlataformaSeguimientoEducativo.Services
             {
                 var feedbacks = await _unitOfWork.Feedbacks.GetFeedbacksByStudentIdAndCourseIdAsync(studentId, courseId);
 
-                var feedbackDtos = feedbacks.Select(f => new FeedbackCreateDto
-                                                        {       
-                                                            FeedbackId = f.FeedbackId,
-                                                            StudentId = f.StudentId,
-                                                            TeacherId= f.TeacherId,
-                                                            CourseId = f.CourseId,
-                                                            FeedbackText= f.FeedbackText,
-                                                            FeedbackDate = f.FeedbackDate
-                                                        }
-                                                    ).ToList();
+                var feedbackDtos = feedbacks.Select(f => new FeedbackCreateDto(
+                    f.FeedbackId,
+                    f.StudentId,
+                    f.TeacherId,
+                    f.CourseId,
+                    f.FeedbackText,
+                    f.FeedbackDate
+                )).ToList();
 
                 return feedbackDtos;
             }

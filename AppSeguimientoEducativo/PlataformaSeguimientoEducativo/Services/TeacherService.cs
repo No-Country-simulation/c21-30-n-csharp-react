@@ -21,9 +21,15 @@ namespace PlataformaSeguimientoEducativo.Services
         }
         public async Task<Teacher> Register(RegisterUserDto registerUserDto)
         {
-            //reusando registerUserDto
-            registerUserDto.RoleName = "Teacher";
-            var user =  await _userService.RegisterUserAsync(registerUserDto);
+            // Create new DTO with Teacher role
+            var teacherRegisterDto = new RegisterUserDto
+            {
+                FullName = registerUserDto.FullName,
+                Email = registerUserDto.Email,
+                Password = registerUserDto.Password,
+                RoleName = "Teacher"
+            };
+            var user =  await _userService.RegisterUserAsync(teacherRegisterDto);
             var teacher = new Teacher
             {
                 Subject = "Actualizar Manual",

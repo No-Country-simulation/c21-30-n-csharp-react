@@ -8,8 +8,8 @@ namespace PlataformaSeguimientoEducativo.Models
     {
         public int ParentStudentId { get; set; }
         public int ParentId { get; set; }
-        public Parent Parent { get; set; }
+        public required Parent Parent { get; set; }
         public int StudentId { get; set; }
-        public Student Student { get; set; }
+        public required Student Student { get; set; }
     }
 }

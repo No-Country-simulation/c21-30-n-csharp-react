@@ -2,13 +2,13 @@
 
 namespace PlataformaSeguimientoEducativo.DTOs
 {
-    public class LoginDto
+    public record LoginDto
     {
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public required string Email { get; init; }
 
         [Required]
-        public string Password { get; set; }
+        public required string Password { get; init; }
     }
 }

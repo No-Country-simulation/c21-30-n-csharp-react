@@ -2,13 +2,12 @@
 
 namespace PlataformaSeguimientoEducativo.DTOs
 {
-    public class PeriodDto
+    public record PeriodDto
     {
         [JsonPropertyName("periodName")]
-        public string PeriodName { get; set; }
+        public required string PeriodName { get; init; }
 
         [JsonPropertyName("Courses")]
-        public List<CourseDto> Courses { get; set; }
-
+        public required List<CourseDto> Courses { get; init; }
     }
 }

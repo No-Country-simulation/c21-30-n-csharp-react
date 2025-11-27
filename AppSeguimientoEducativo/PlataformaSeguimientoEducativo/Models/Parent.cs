@@ -8,7 +8,7 @@ namespace PlataformaSeguimientoEducativo.Models
     {
         public int ParentId { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; }
-        public ICollection<ParentStudent> ParentStudents { get; set; }
+        public required User User { get; set; }
+        public ICollection<ParentStudent> ParentStudents { get; set; } = new List<ParentStudent>();
     }
 }

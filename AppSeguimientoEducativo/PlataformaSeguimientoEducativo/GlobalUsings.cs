@@ -1,0 +1,10 @@
+global using Microsoft.EntityFrameworkCore;
+global using PlataformaSeguimientoEducativo.Data;
+global using PlataformaSeguimientoEducativo.Models;
+global using PlataformaSeguimientoEducativo.DTOs;
+global using PlataformaSeguimientoEducativo.Repositories;
+global using PlataformaSeguimientoEducativo.Services;
+global using System.ComponentModel.DataAnnotations;
+global using System.ComponentModel.DataAnnotations.Schema;
+global using System.Text.Json.Serialization;
+global using PlataformaSeguimientoEducativo.Middleware;

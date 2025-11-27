@@ -2,16 +2,16 @@
 
 namespace PlataformaSeguimientoEducativo.DTOs
 {
-    public class ChangePasswordDto
+    public record ChangePasswordDto
     {
         [Required]
-        public string CurrentPassword { get; set; }
+        public required string CurrentPassword { get; init; }
 
         [Required]
         [StringLength(100, MinimumLength = 6)]
-        public string NewPassword { get; set; }
+        public required string NewPassword { get; init; }
 
         [Compare("NewPassword", ErrorMessage = "La nueva contraseña y la contraseña de confirmación no coinciden.")]
-        public string ConfirmNewPassword { get; set; }
+        public required string ConfirmNewPassword { get; init; }
     }
 }

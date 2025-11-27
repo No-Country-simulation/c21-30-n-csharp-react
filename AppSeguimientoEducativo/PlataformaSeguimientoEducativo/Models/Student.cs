@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace PlataformaSeguimientoEducativo.Models
 {
@@ -10,11 +10,11 @@ namespace PlataformaSeguimientoEducativo.Models
 
         [ForeignKey("UserId")]
         public int UserId { get; set; }
-        public User User { get; set; }
+        public User? User { get; set; }
         public string? Grade { get; set; }
         public DateTime EnrollmentDate { get; set; }
-        public ICollection<Grade> Grades { get; set; }
-        public ICollection<ParentStudent> ParentStudents { get; set; }
-        public ICollection<Feedback> Feedbacks { get; set; }
+        public ICollection<Grade> Grades { get; set; } = new List<Grade>();
+        public ICollection<ParentStudent> ParentStudents { get; set; } = new List<ParentStudent>();
+        public ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
     }
 }

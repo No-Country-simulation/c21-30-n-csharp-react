@@ -2,19 +2,18 @@
 
 namespace PlataformaSeguimientoEducativo.DTOs
 {
-    public class ParentDashboardDto
+    public record ParentDashboardDto
     {
         [JsonPropertyName("parentId")]
-        public int ParentId { get; set; }
+        public int ParentId { get; init; }
 
         [JsonPropertyName("parentName")]
-        public string ParentName { get; set; }
+        public required string ParentName { get; init; }
 
         [JsonPropertyName("parentRole")]
-        public string ParentRole { get; set; }
+        public required string ParentRole { get; init; }
 
         [JsonPropertyName("students")]
-        public List<StudentInfoDto> Students { get; set; }
-
+        public required List<StudentInfoDto> Students { get; init; }
     }
 }

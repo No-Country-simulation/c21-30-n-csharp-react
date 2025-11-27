@@ -1,11 +1,10 @@
 ﻿using PlataformaSeguimientoEducativo.Models;
 
-namespace PlataformaSeguimientoEducativo.Repositories
+namespace PlataformaSeguimientoEducativo.Repositories;
+
+public interface ITeacherRepository : IRepository<Teacher>
 {
-    public interface ITeacherRepository : IRepository<Teacher>
-    {
-        Task<IEnumerable<Teacher>> GetAllWithUserAsync();
-        Task<Teacher> GetByIdWithUserAsync(int teacherId);
-        Task DeleteAsync(int teacherId);
-    }
+    Task<IEnumerable<Teacher>> GetAllWithUserAsync();
+    Task<Teacher?> GetByIdWithUserAsync(int teacherId);
+    Task DeleteAsync(int teacherId);
 }

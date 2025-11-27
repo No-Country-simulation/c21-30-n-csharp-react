@@ -8,9 +8,9 @@ namespace PlataformaSeguimientoEducativo.Models
     public class AcademicPeriod
     {
         public int AcademicPeriodId { get; set; }
-        public string PeriodName { get; set; }
+        public required string PeriodName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public ICollection<Course> Courses { get; set; }
+        public required ICollection<Course> Courses { get; set; }
     }
 }

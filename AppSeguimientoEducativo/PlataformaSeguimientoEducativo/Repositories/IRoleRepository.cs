@@ -1,9 +1,8 @@
 ﻿using PlataformaSeguimientoEducativo.Models;
 
-namespace PlataformaSeguimientoEducativo.Repositories
+namespace PlataformaSeguimientoEducativo.Repositories;
+
+public interface IRoleRepository : IRepository<Role>
 {
-    public interface IRoleRepository : IRepository<Role>
-    {
-        Task<Role> GetRoleByNameAsync(string roleName);
-    }
+    Task<Role?> GetRoleByNameAsync(string roleName);
 }

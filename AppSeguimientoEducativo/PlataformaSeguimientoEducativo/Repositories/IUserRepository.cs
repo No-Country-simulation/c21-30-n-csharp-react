@@ -1,11 +1,10 @@
 ﻿using PlataformaSeguimientoEducativo.Models;
 
-namespace PlataformaSeguimientoEducativo.Repositories
+namespace PlataformaSeguimientoEducativo.Repositories;
+
+public interface IUserRepository : IRepository<User>
 {
-    public interface IUserRepository : IRepository<User>
-    {
-        Task<User> GetByIdAsync(string userEmail);
-        Task<User> GetUserByEmailAsync(string email);
-        Task<User> GetUserWithRoleAsync(int id);
-    }
+    Task<User?> GetByIdAsync(string userEmail);
+    Task<User?> GetUserByEmailAsync(string email);
+    Task<User?> GetUserWithRoleAsync(int id);
 }

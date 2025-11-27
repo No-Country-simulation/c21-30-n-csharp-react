@@ -1,14 +1,11 @@
-﻿using PlataformaSeguimientoEducativo.DTOs;
-using PlataformaSeguimientoEducativo.Models;
+﻿using PlataformaSeguimientoEducativo.Models;
 
-namespace PlataformaSeguimientoEducativo.Repositories
+namespace PlataformaSeguimientoEducativo.Repositories;
+
+public interface IGradeRepository : IRepository<Grade>
 {
-    public interface IGradeRepository : IRepository<Grade>
-    {
-        Task<List<Grade>> GetGradesByStudentId(int studentId, int? courseId = null, int? periodId = null);
-        Task<Grade> AddGradesAsync(Grade grade);
-        Task<Grade> GetGradesByIdAsync(int gradeId);
-        Task<Grade> UpdateGradesAsync(Grade grade);
-
-    }
+    Task<List<Grade>> GetGradesByStudentId(int studentId, int? courseId, int? AcademicPeriodId);
+    Task<Grade> AddGradesAsync(Grade grade);
+    Task<Grade?> GetGradesByIdAsync(int gradeId);
+    Task<Grade> UpdateGradesAsync(Grade grade);
 }

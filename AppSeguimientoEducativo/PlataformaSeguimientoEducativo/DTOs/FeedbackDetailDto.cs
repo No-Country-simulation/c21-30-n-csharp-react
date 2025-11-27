@@ -2,12 +2,12 @@
 
 namespace PlataformaSeguimientoEducativo.DTOs
 {
-    public class FeedbackDetailDto
+    public record FeedbackDetailDto
     {
         [JsonPropertyName("feedbackText")]
-        public string FeedbackText { get; set; }
+        public required string FeedbackText { get; init; }
 
         [JsonPropertyName("feedbackDate")]
-        public string FeedbackDate { get; set; }
+        public required string FeedbackDate { get; init; }
     }
 }

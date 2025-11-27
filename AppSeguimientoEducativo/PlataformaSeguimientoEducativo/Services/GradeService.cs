@@ -22,11 +22,14 @@ namespace PlataformaSeguimientoEducativo.Services
             {
                 var grades = await _unitOfWork.Grades.GetGradesByStudentId(studentId, courseId, periodId);
 
-                var gradeDtos = grades.Select(g => new GradeDto
-                {
-                    GradeValue = g.GradeValue,
-                    EvaluationDate = g.EvaluationDate,
-                }).ToList();
+                var gradeDtos = grades.Select(g => new GradeDto(
+                    g.CourseId,
+                    g.Course?.CourseName ?? "",
+                    g.Course?.AcademicPeriodId ?? 0,
+                    g.GradeId,
+                    g.GradeValue,
+                    g.EvaluationDate
+                )).ToList();
 
                 return gradeDtos;
             }
@@ -79,11 +82,14 @@ namespace PlataformaSeguimientoEducativo.Services
                 await _unitOfWork.Grades.UpdateGradesAsync(grade);
                 await _unitOfWork.CompleteAsync();
 
-                return new GradeDto
-                {
-                    GradeValue = grade.GradeValue,
-                    EvaluationDate = grade.EvaluationDate
-                };
+                return new GradeDto(
+                    grade.CourseId,
+                    grade.Course?.CourseName ?? "",
+                    grade.Course?.AcademicPeriodId ?? 0,
+                    grade.GradeId,
+                    grade.GradeValue,
+                    grade.EvaluationDate
+                );
             }
             catch (Exception ex)
             {

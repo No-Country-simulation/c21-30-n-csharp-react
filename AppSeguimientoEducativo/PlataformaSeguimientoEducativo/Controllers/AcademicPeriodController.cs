@@ -4,7 +4,7 @@ using PlataformaSeguimientoEducativo.Data;
 using PlataformaSeguimientoEducativo.DTOs;
 
 
-namespace PlataformaSeguimientoEducativo.NewFolder
+namespace PlataformaSeguimientoEducativo.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
@@ -22,16 +22,16 @@ namespace PlataformaSeguimientoEducativo.NewFolder
 		{
 			var academicPeriods = await _context.AcademicPeriods
 				.Include(ap => ap.Courses)
-				.Select(a => new AcademicPeriodDto
-				{
-					AcademicPeriodId = a.AcademicPeriodId,
-					PeriodName = a.PeriodName,
-					Courses = a.Courses.Select(c => new CourseDto
+				.Select(a => new AcademicPeriodDto(
+					a.AcademicPeriodId,
+					a.PeriodName,
+					a.Courses.Select(c => new CourseDto
 					{
 						CourseId = c.CourseId,
-						CourseName = c.CourseName
+						CourseName = c.CourseName,
+						Teachers = new List<TeacherInfoDto>()
 					}).ToList()
-				})
+				))
 				.ToListAsync();
 
 			return Ok(academicPeriods);
